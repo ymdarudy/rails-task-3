@@ -1,0 +1,6 @@
+<h1><%= @user.name %>のページ</h1>
+
+<div>メールアドレス: <%= @user.email %></div>
+<div><%= image_tag @user.profile_image.url if @user.profile_image? %></div>
+
+<%= link_to '一覧に戻る', pictures_path %>
