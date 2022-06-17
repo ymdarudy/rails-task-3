@@ -5,7 +5,11 @@
     <% @pictures.each do |picture| %>
       <tr>
         <td><%= picture.user.name %></td>
-        <td><img src="<%= picture.image %>" id="picture_image"></td>
+        <% if picture.image? %>
+          <td><img src="<%= picture.image %>" id="picture_image"></td>
+        <% else %>
+          <td>画像無</td>
+        <% end %>
         <td><%= picture.content %></td>
         <td><%= link_to '詳細', picture %></td>
         <% if picture.user == current_user %>
