@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsTask3</title>
+    <title>写真共有アプリ</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,29 @@
   </head>
 
   <body>
+
+    <div class="login_status">
+      <% if logged_in? %>
+        <div>
+          <%= link_to "プロフィール", user_path(current_user.id) %>
+          <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+        </div>
+        <p>ようこそ<%= current_user.name%>さん</p>
+        <% if current_user.profile_image? %>
+          <p><img src="<%= current_user.profile_image %>" id="profile_image"></p>
+        <% end %>
+      <% else %>
+        <div>
+          <%= link_to "アカウント登録", new_user_path %>
+          <%= link_to "ログイン", new_session_path %>
+        </div>
+      <% end %>
+    </div>
+
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
