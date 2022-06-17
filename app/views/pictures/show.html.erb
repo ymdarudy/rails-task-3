@@ -1,19 +1,16 @@
-<p id="notice"><%= notice %></p>
-
+<%# TODO：投稿者の画像を表示させる?横並びにできるなら %>
 <p>
-  <strong>Content:</strong>
-  <%= @picture.content %>
+  <strong>投稿者:</strong>
+  <%= @picture.user.name %>
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @picture.image %>
-</p>
+<% if @picture.image? %>
+  <p><%= image_tag @picture.image.url%></p>
+<% end %>
 
-<p>
-  <strong>User:</strong>
-  <%= @picture.user_id %>
-</p>
+<p><%= @picture.content %></p>
 
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>
+<% if @picture.user == current_user %>
+  <%= link_to '編集', edit_picture_path(@picture) %> |
+<% end %>
+<%= link_to '一覧に戻る', pictures_path %>

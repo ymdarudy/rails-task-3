@@ -17,7 +17,7 @@
           <%= link_to "プロフィール", user_path(current_user.id) %>
           <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
         </div>
-        <p>ようこそ<%= current_user.name%>さん</p>
+        <p>ようこそ<strong><%= current_user.name%></strong>さん</p>
         <% if current_user.profile_image? %>
           <p><img src="<%= current_user.profile_image %>" id="profile_image"></p>
         <% end %>

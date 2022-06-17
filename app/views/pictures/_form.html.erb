@@ -12,18 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
     <%= form.label :image %>
-    <%= form.text_area :image %>
+  </div>
+  <div>
+    <%= form.file_field :image %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.label :content %>
+  </div>
+  <div>
+    <%= form.text_area :content %>
   </div>
 
   <div class="actions">
