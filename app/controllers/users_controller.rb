@@ -1,6 +1,13 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[ show edit update ]
+  before_action :ensure_user, only: %i[ edit update ]
+
   def new
-    @user = User.new
+    if current_user
+      redirect_to pictures_path
+    else
+      @user = User.new
+    end
   end
 
   def create
@@ -14,10 +21,28 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to user_url(@user), notice: "プロフィールを編集しました！"
+    else
+      render :edit
+    end
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def ensure_user
+    redirect_to root_path unless @user == current_user
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :profile_image)
