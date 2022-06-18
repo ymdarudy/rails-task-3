@@ -1,0 +1,27 @@
+<h1>お気に入り一覧</h1>
+
+<p>
+  <%= "お気に入りなし。投稿一覧の「詳細」ページからお気に入り登録しよう！" unless @favorites.present? %>
+</p>
+
+<table>
+  <tbody>
+    <% @favorites.each do |favorite| %>
+      <tr>
+        <td><%= favorite.user.name %></td>
+        <% if favorite.image? %>
+          <td><img src="<%= favorite.image %>" id="picture_image"></td>
+        <% else %>
+          <td>画像無</td>
+        <% end %>
+        <td><%= favorite.content %></td>
+        <td><%= link_to '詳細', favorite %></td>
+        <td><%= link_to '解除', favorite_path(id: favorite.favorite_ids, name: "favorite_index"), method: :delete ,data: {confirm: "お気に入り解除してよろしいですか？"}%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '投稿一覧に戻る', pictures_path %>

@@ -15,6 +15,7 @@
       <% if logged_in? %>
         <div>
           <%= link_to "プロフィール", user_path(current_user.id) %>
+          <%= link_to "お気に入り一覧", favorites_path %>
           <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
         </div>
         <p>ようこそ<strong><%= current_user.name%></strong>さん</p>
