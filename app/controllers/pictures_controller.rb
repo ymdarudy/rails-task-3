@@ -21,6 +21,7 @@ class PicturesController < ApplicationController
     @picture = current_user.pictures.build(picture_params)
     render :new and return if params[:back]
     if @picture.save
+      SubmitMailer.submit_mail(@picture).deliver
       redirect_to picture_url(@picture), notice: "新規投稿しました！"
     else
       render :new

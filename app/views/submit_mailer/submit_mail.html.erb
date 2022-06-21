@@ -1,0 +1,9 @@
+<h1>新規投稿が完了しました！</h1>
+
+<h4>名前: <%= @submit.user.name %></h4>
+
+<h4>新規投稿内容の確認</h4>
+
+<p>画像: <%= image_tag(@submit.image.url) if @submit.image? %></p>
+
+<p>内容: <%= @submit.content %></p>
