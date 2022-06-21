@@ -14,6 +14,7 @@ gem "bcrypt"
 gem "carrierwave"
 gem "mini_magick"
 gem "rexml"
+gem "faker"
 
 gem "bootsnap", ">= 1.4.2", require: false
 
