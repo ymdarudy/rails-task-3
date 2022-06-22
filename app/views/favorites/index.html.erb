@@ -1,27 +1,21 @@
-<h1>お気に入り一覧</h1>
+<h2>お気に入り一覧</h2>
 
 <p>
   <%= "お気に入りなし。投稿一覧の「詳細」ページからお気に入り登録しよう！" unless @favorites.present? %>
 </p>
 
-<table>
-  <tbody>
-    <% @favorites.each do |favorite| %>
-      <tr>
-        <td><%= favorite.user.name %></td>
-        <% if favorite.image? %>
-          <td><img src="<%= favorite.image %>" id="picture_image"></td>
-        <% else %>
-          <td>画像無</td>
-        <% end %>
-        <td><%= favorite.content %></td>
-        <td><%= link_to '詳細', favorite %></td>
-        <td><%= link_to '解除', favorite_path(id: favorite.favorite_ids, name: "favorite_index"), method: :delete ,data: {confirm: "お気に入り解除してよろしいですか？"}%></td>
-      </tr>
+<% @favorites.each do |favorite| %>
+  <div class = "favorite-contents">
+    <div class = "favorite-item1"><%= favorite.user.name %></div>
+    <% if favorite.image? %>
+      <div class = "favorite-item2"><img src="<%= favorite.image %>" id="picture_image"></div>
+    <% else %>
+      <div class = "favorite-item2">画像無</div>
     <% end %>
-  </tbody>
-</table>
+    <div class = "favorite-item3"><%= favorite.content %></div>
+    <div class = "favorite-item4"><%= link_to '詳細', favorite, class: "btn btn-info" %></div>
+    <div class = "favorite-item5"><%= link_to '解除', favorite_path(id: favorite.favorite_ids, name: "favorite_index"), method: :delete ,data: {confirm: "お気に入り解除してよろしいですか？"}, class: "btn btn-danger" %></div>
+  </div>
+<% end %>
 
-<br>
-
-<%= link_to '投稿一覧に戻る', pictures_path %>
+<%= link_to '投稿一覧に戻る', pictures_path, class: "btn btn-secondary"%>

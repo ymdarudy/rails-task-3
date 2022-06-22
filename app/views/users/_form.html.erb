@@ -2,7 +2,7 @@
 
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+      <h3><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h3>
       <ul>
         <% @user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -12,31 +12,19 @@
   <% end %>
 
   <div>
-    <%= form.label :name %>
-  </div>
-  <div>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, placeholder: "名前" %>
   </div>
 
   <div>
-    <%= form.label :email %>
-  </div>
-  <div>
-    <%= form.email_field :email %>
+    <%= form.email_field :email, placeholder: "メールアドレス" %>
   </div>
 
   <div>
-    <%= form.label :password %>
-  </div>
-  <div>
-    <%= form.password_field :password %>
+    <%= form.password_field :password, placeholder: "パスワード" %>
   </div>
 
   <div>
-    <%= form.label :password_confirmation %>
-  </div>
-  <div>
-    <%= form.password_field :password_confirmation %>
+    <%= form.password_field :password_confirmation, placeholder: "パスワード確認" %>
   </div>
 
   <div>
@@ -47,6 +35,6 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary"%>
   </div>
 <% end %>

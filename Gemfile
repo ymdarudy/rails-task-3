@@ -15,6 +15,7 @@ gem "carrierwave"
 gem "mini_magick"
 gem "rexml"
 gem "faker"
+gem "letter_opener_web"
 
 gem "bootsnap", ">= 1.4.2", require: false
 
@@ -28,7 +29,6 @@ group :development do
   gem "listen", "~> 3.2"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
-  gem "letter_opener_web"
 end
 
 group :test do

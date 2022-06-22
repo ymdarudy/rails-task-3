@@ -1,0 +1,75 @@
+@import '~bootstrap/scss/bootstrap';
+
+img#profile_image {
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  border: solid 2px #ff47eab9;
+}
+
+img#picture_image {
+  width:50px;
+  height:50px;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  margin : 0 auto;
+}
+
+.login_status {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.login_item {
+  padding: 0 2px;
+}
+
+#error_explanation {
+  color: red;
+}
+
+.favorite-contents, .picture-contents {
+  min-height: 57px;
+  border: 0.5px solid;
+  border-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2px;
+  margin: 2px;
+}
+
+.favorite-item1, .picture-item1 {
+  width: 80px;
+}
+
+.favorite-item2, .picture-item2 {
+  width: 60px;
+}
+
+.favorite-item3, .picture-item3{
+  width: 120px;
+}
+
+.picture-item5, .picture-item6 {
+  width: 62px;
+}
+
+.btn {
+  margin-top: 5px;
+  margin-right: 2px;
+}
